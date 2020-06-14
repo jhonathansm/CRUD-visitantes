@@ -3,7 +3,6 @@ package com.avivamento.dto;
 import org.springframework.data.domain.Page;
 
 import com.avivamento.model.Visitantes;
-import com.avivamento.repository.VisitantesRepository;
 
 
 public class VisitantesDto {
@@ -46,13 +45,4 @@ public class VisitantesDto {
 		return visitantes.map(VisitantesDto::new);
 	}
 	
-	
-	/** Verificar este metodo, pois pode ser criado uma classe a parte para atualizar mais dados importantes **/
-	public Visitantes atualizar(Long id, VisitantesRepository visitantesRepository) {
-		Visitantes visitantes = visitantesRepository.getOne(id);
-		visitantes.setNome(this.nome);
-		visitantes.setEndereco(this.endereco);
-		return visitantes;
-		
-	}
 }

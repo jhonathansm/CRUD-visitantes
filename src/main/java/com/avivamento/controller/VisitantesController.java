@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.avivamento.dto.VisitantesDto;
+import com.avivamento.dto.form.VisitantesForm;
 import com.avivamento.model.Visitantes;
 import com.avivamento.repository.VisitantesRepository;
 
@@ -72,7 +73,7 @@ public class VisitantesController {
 	
 	@PutMapping("/{id}")
 	@Transactional
-	public ResponseEntity<VisitantesDto> atualizar(@PathVariable Long id, @RequestBody @Valid VisitantesDto form){
+	public ResponseEntity<VisitantesDto> atualizar(@PathVariable Long id, @RequestBody @Valid VisitantesForm form){
 		Optional<Visitantes> visitantes = visitantesRepository.findById(id);
 		
 		if(visitantes.isPresent()) {
